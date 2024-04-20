@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <title>KiwBoard</title>
+</head>
+<body>
+    <div class="popUp-container">
+       <div class="popUp" id="popUp">
+            <h2>Titulo:</h2>
+            <input type="text" id="inputBox">
+            <button class="addTask" onclick="closePopUp(); addTask();"><b>+</b></button>
+        </div>
+    </div>
+   <div class="container">
+        <h2>Create Task!</h2>
+        <button class="createTask" onclick="displayPopUp()">+</button>
+   </div> 
+   <div class="board">
+        <div id="task" class="task">Tasks</div>
+        <div id="priority" class="priority">Priority</div>
+        <div id="inprogress" class="inprogress">In progress</div>
+        <div id="testing" class="testing">Testing</div>
+        <div id="bugs" class="bugs">Bugs</div>
+        <div id="droped" class="droped">Droped</div>
+        <div id="done" class="done">Done</div>
+   </div>
+</body>
+</html>
