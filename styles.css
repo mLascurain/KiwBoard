@@ -49,7 +49,6 @@ body{
 
 #task{
     border: 2px dashed silver;
-    overflow: scroll;
 }
 
 #priority{
@@ -86,12 +85,10 @@ body{
 
 .popUp{
     background: #707070;
-    top: -50%;
     visibility: hidden;
 }
 
 .display{
-    top: 25%;
     visibility: visible;
 }
 
