@@ -34,14 +34,20 @@ function addTask(){
     inputBox.value = "";
 }
 
-const card = document.getElementById("card-id");
+const columns = document.querySelectorAll(".column");
+//const card = document.querySelectorAll(".card");
+const card = document.getElementsByClassName("card");
 
-card.addEventListener('dragstart', function(event){
-    console.log(event);
-})
-priorityContainer.addEventListener('dragover', function(event){
-    event.preventDefault();
-})
-priorityContainer.addEventListener('drop', function(event){
-    priorityContainer.prepend(card);
-})
+columns.forEach((column) => {
+    column.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        column.classList.add("hovered");
+    });
+    column.addEventListener("dragleave", () => {
+        column.classList.remove("hovered");
+    });
+    column.addEventListener("drop", () => {
+        column.appendChild(card[0]);
+        column.classList.remove("hovered");
+    })
+});
