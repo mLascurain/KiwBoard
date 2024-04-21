@@ -44,35 +44,45 @@ body{
     width: 200px;
     height: 600px;
     margin: 20px;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+    background-color: #595959;
+}
+
+::-webkit-scrollbar-track{
+    background: #1f1f1f;
 }
 
 #task{
-    border: 2px dashed silver;
+    border: 2px solid silver;
 }
 
 #priority{
-    border: 2px dashed purple;
+    border: 2px solid purple;
 }
 
 #inprogress{
-    border: 2px dashed lightseagreen;
+    border: 2px solid lightseagreen;
 }
 
 #testing{
-    border: 2px dashed yellow;
+    border: 2px solid yellow;
 }
 
 #bugs{
-    border: 2px dashed red;
+    border: 2px solid red;
 }
 
 #droped{
-    border: 2px dashed darkred;
+    border: 2px solid darkred;
 }
 
 #done{
-    border: 2px dashed green;
+    border: 2px solid green;
 }
 
 .popUp{
