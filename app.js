@@ -21,7 +21,7 @@ function addTask(){
         alert("dont forget to add a title to create the task!");
     }
     else{
-        let div = document.createElement("div");
+        let div = document.createElement("section");
         taskContainer.appendChild(div);
         div.classList.add("card");
         div.setAttribute('id', 'card-id');
@@ -51,3 +51,45 @@ columns.forEach((column) => {
         column.classList.remove("hovered");
     })
 });
+
+taskContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+priorityContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+inprogressContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+testingContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+bugsContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+dropedContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
+
+doneContainer.addEventListener("click", function(e){
+    if(e.target.tagName === "SECTION"){
+        e.target.remove();
+    }
+})
