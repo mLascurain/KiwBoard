@@ -61,28 +61,64 @@ body{
     border: 2px solid silver;
 }
 
+#task div{
+    background: silver;
+}
+
+#task li{
+    color: #1f1f1f;
+}
+
 #priority{
     border: 2px solid purple;
+}
+
+#priority div{
+    background: purple;
 }
 
 #inprogress{
     border: 2px solid lightseagreen;
 }
 
+#inprogress div{
+    background: lightseagreen;
+}
+
 #testing{
     border: 2px solid yellow;
+}
+
+#testing div{
+    background: yellow;
+}
+
+#testing li{
+    color: #1f1f1f;
 }
 
 #bugs{
     border: 2px solid red;
 }
 
+#bugs div{
+    background: red;
+}
+
 #droped{
     border: 2px solid darkred;
 }
 
+#droped div{
+    background: darkred;
+}
+
 #done{
     border: 2px solid green;
+}
+
+#done div{
+    background: green;
 }
 
 .popUp{
@@ -142,7 +178,7 @@ body{
     color: #595959;
 }
 
-#task{
+#task, #priority, #inprogress, #testing, #bugs, #droped, #done{
     display: flex;
     flex-wrap: wrap;
 }
