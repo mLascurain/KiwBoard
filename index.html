@@ -10,7 +10,7 @@
 <body>
     <div class="popUp-container">
        <div class="popUp" id="popUp">
-            <h2>Titulo:</h2>
+            <h2 onclick="closePopUp()">Titulo:</h2>
             <input type="text" id="inputBox">
             <button class="addTask" onclick="closePopUp(); addTask();"><b>+</b></button>
         </div>
@@ -20,7 +20,7 @@
         <button class="createTask" onclick="displayPopUp()">+</button>
    </div> 
    <div class="board">
-        <div id="task" class="task column">Tasks</div>
+        <div id="task" class="task column">Task</div>
         <div id="priority" class="priority column">Priority</div>
         <div id="inprogress" class="inprogress column">In progress</div>
         <div id="testing" class="testing column">Testing</div>

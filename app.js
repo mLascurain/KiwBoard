@@ -10,6 +10,7 @@ const doneContainer = document.getElementById("done");
 
 function displayPopUp(){
     popUpBox.classList.add("display");
+    inputBox.value = "";
 }
 
 function closePopUp(){
@@ -17,26 +18,33 @@ function closePopUp(){
 }
 
 function addTask(){
-    if(inputBox === ""){
-        alert("dont forget to add a title to create the task!");
-    }
-    else{
-        let div = document.createElement("section");
-        taskContainer.appendChild(div);
-        div.classList.add("card");
-        div.setAttribute('id', 'card-id');
-        div.setAttribute('draggable', true);
-        let li = document.createElement("li");
-        li.innerHTML = inputBox.value;
-        li.setAttribute('draggable', true);
-        div.appendChild(li);
-    }
+    let section = document.createElement("section");
+    taskContainer.appendChild(section);
+    section.classList.add("card");
+    section.setAttribute('draggable', true);
+    let li = document.createElement("li");
+    li.innerHTML = inputBox.value;
+    section.appendChild(li);
     inputBox.value = "";
+    dragAndDrop();
 }
 
+function dragAndDrop(){
+let selected;
+
 const columns = document.querySelectorAll(".column");
-//const card = document.querySelectorAll(".card");
-const card = document.getElementsByClassName("card");
+const cards = document.getElementsByClassName("card");
+
+for(card of cards) {
+    card.addEventListener("dragstart", (e) =>{
+        e.target.classList.add("dragging");
+        selected = document.getElementsByClassName("dragging");
+        console.log("debug");
+    });
+    card.addEventListener("dragend", (e) => {
+        e.target.classList.remove("dragging");
+    });
+};
 
 columns.forEach((column) => {
     column.addEventListener("dragover", (e) => {
@@ -47,11 +55,11 @@ columns.forEach((column) => {
         column.classList.remove("hovered");
     });
     column.addEventListener("drop", () => {
-        column.appendChild(card[0]);
+        column.appendChild(selected[0]);
         column.classList.remove("hovered");
-    })
+    });
 });
-
+}
 taskContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
