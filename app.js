@@ -27,77 +27,95 @@ function addTask(){
     section.appendChild(li);
     inputBox.value = "";
     dragAndDrop();
+    saveData();
 }
 
 function dragAndDrop(){
-let selected;
+    let selected;
 
-const columns = document.querySelectorAll(".column");
-const cards = document.getElementsByClassName("card");
+    const columns = document.querySelectorAll(".column");
+    const cards = document.getElementsByClassName("card");
 
-for(card of cards) {
-    card.addEventListener("dragstart", (e) =>{
-        e.target.classList.add("dragging");
-        selected = document.getElementsByClassName("dragging");
-        console.log("debug");
-    });
-    card.addEventListener("dragend", (e) => {
-        e.target.classList.remove("dragging");
-    });
-};
+    for(card of cards) {
+        card.addEventListener("dragstart", (e) =>{
+            e.target.classList.add("dragging");
+            selected = document.getElementsByClassName("dragging");
+            console.log("debug");
+        });
+        card.addEventListener("dragend", (e) => {
+            e.target.classList.remove("dragging");
+        });
+    };
 
-columns.forEach((column) => {
-    column.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        column.classList.add("hovered");
+    columns.forEach((column) => {
+        column.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            column.classList.add("hovered");
+        });
+        column.addEventListener("dragleave", () => {
+            column.classList.remove("hovered");
+        });
+        column.addEventListener("drop", () => {
+            column.appendChild(selected[0]);
+            column.classList.remove("hovered");
+        });
     });
-    column.addEventListener("dragleave", () => {
-        column.classList.remove("hovered");
-    });
-    column.addEventListener("drop", () => {
-        column.appendChild(selected[0]);
-        column.classList.remove("hovered");
-    });
-});
 }
 taskContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 priorityContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 inprogressContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 testingContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 bugsContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 dropedContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
 
 doneContainer.addEventListener("click", function(e){
     if(e.target.tagName === "SECTION"){
         e.target.remove();
+        saveData();
     }
 })
+
+function saveData(){
+    localStorage.setItem("data", columns.innerHTML);
+}
+
+function showData(){
+    columns.innerHTML = localStorage.getItem("data");
+}
+
+showData();

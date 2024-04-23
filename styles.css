@@ -20,7 +20,7 @@ body{
 
 .container{
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-content: center;
 }
 
@@ -33,7 +33,12 @@ body{
 .container button{
     width: 35px;
     height: 20px;
-    margin: 18px;
+    margin-top: 18px;
+    margin-left: 15px;
+}
+
+.container button:hover{
+    cursor: pointer;
 }
 
 .task, .priority, .inprogress, .testing, .bugs, .droped, .done{
@@ -61,7 +66,7 @@ body{
     border: 2px solid silver;
 }
 
-#task div{
+#task section{
     background: silver;
 }
 
@@ -73,7 +78,7 @@ body{
     border: 2px solid purple;
 }
 
-#priority div{
+#priority section{
     background: purple;
 }
 
@@ -81,7 +86,7 @@ body{
     border: 2px solid lightseagreen;
 }
 
-#inprogress div{
+#inprogress section{
     background: lightseagreen;
 }
 
@@ -89,7 +94,7 @@ body{
     border: 2px solid yellow;
 }
 
-#testing div{
+#testing section{
     background: yellow;
 }
 
@@ -101,7 +106,7 @@ body{
     border: 2px solid red;
 }
 
-#bugs div{
+#bugs section{
     background: red;
 }
 
@@ -109,7 +114,7 @@ body{
     border: 2px solid darkred;
 }
 
-#droped div{
+#droped section{
     background: darkred;
 }
 
@@ -117,7 +122,7 @@ body{
     border: 2px solid green;
 }
 
-#done div{
+#done section{
     background: green;
 }
 
@@ -143,15 +148,21 @@ body{
     background: #595959;
     border: none;
     outline: none;
-    border-radius: 5px;
+    border-radius: 3px;
     height: 20px;
     margin-left: 0;
+    color: azure;
+    padding: 5px;
 }
 
 .popUp h2{
     margin: 11px;
     margin-left: 0;
     color: azure;
+}
+
+.popUp h2:hover{
+    cursor: pointer;
 }
 
 .popUp-container{
@@ -165,12 +176,17 @@ body{
     width: 35px;
     height: 20px;
     margin: 14px;
-    margin-left: 0;
+    margin-left: -2px;
     color: azure;
     font-size: 16px;
     background: #595959;
     outline: none;
     border: none;
+    margin-top: 15px;
+}
+
+.addTask:hover{
+    cursor: pointer;
 }
 
 .addTask:hover{
@@ -191,9 +207,15 @@ body{
     height: 50px;
     background: #595959;
     margin: 2px;
+    cursor: grab;
 }
 
 .card li{
     list-style: none;
     color: azure;
+}
+
+.dragging{
+    opacity: 15%;
+    cursor: grabbing;
 }
