@@ -1,12 +1,8 @@
 const popUpBox = document.getElementById("popUp");
 const inputBox = document.getElementById("inputBox");
 const taskContainer = document.getElementById("task");
-const priorityContainer = document.getElementById("priority");
-const inprogressContainer = document.getElementById("inprogress");
-const testingContainer = document.getElementById("testing");
-const bugsContainer = document.getElementById("bugs");
-const dropedContainer = document.getElementById("droped");
-const doneContainer = document.getElementById("done");
+const columns = document.querySelectorAll(".column");
+const cards = document.getElementsByClassName("card");
 
 function displayPopUp(){
     popUpBox.classList.add("display");
@@ -27,20 +23,15 @@ function addTask(){
     section.appendChild(li);
     inputBox.value = "";
     dragAndDrop();
-    saveData();
 }
 
 function dragAndDrop(){
     let selected;
 
-    const columns = document.querySelectorAll(".column");
-    const cards = document.getElementsByClassName("card");
-
     for(card of cards) {
         card.addEventListener("dragstart", (e) =>{
             e.target.classList.add("dragging");
             selected = document.getElementsByClassName("dragging");
-            console.log("debug");
         });
         card.addEventListener("dragend", (e) => {
             e.target.classList.remove("dragging");
@@ -61,61 +52,11 @@ function dragAndDrop(){
         });
     });
 }
-taskContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
 
-priorityContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-inprogressContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-testingContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-bugsContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-dropedContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-doneContainer.addEventListener("click", function(e){
-    if(e.target.tagName === "SECTION"){
-        e.target.remove();
-        saveData();
-    }
-})
-
-function saveData(){
-    localStorage.setItem("data", columns.innerHTML);
-}
-
-function showData(){
-    columns.innerHTML = localStorage.getItem("data");
-}
-
-showData();
+for(column of columns){
+    column.addEventListener("click", function(event){
+        if(event.target.tagName === "SECTION"){
+            event.target.remove();
+        };
+    });
+};
